@@ -27,26 +27,27 @@ class _Screen1State extends State<Screen1> {
     return Scaffold(
       body: Stack(
         children: [
-          // Image.asset(
-          //   'assets/images/bg.jpg',
-          //   fit: BoxFit.cover,
-          //   height: double.infinity,
-          // ),
-          Wrap(
-            alignment: WrapAlignment.spaceEvenly,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  _incrementCounter();
-                },
-                child: Icon(Icons.star),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      _incrementCounter();
+                    },
+                    child: Icon(Icons.add_box_outlined),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      _decrementCounter();
+                    },
+                    child: Icon(Icons.remove_circle_outline_rounded),
+                  ),
+                ],
               ),
-              ElevatedButton(
-                onPressed: () {
-                  _decrementCounter();
-                },
-                child: Icon(Icons.star),
-              ),
+              SizedBox(height: 20),
               Center(child: Text("data: $_counter")),
             ],
           ),

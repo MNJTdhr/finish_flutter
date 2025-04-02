@@ -17,10 +17,18 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Finish Flutter"),
           leading: Icon(Icons.menu),
+          title: Text("Finish Flutter"),
+          centerTitle: true,
+          actions: [Icon(Icons.login), Icon(Icons.logout)],
         ),
         body: Center(child: Screen1()),
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: 'home'),
+            NavigationDestination(icon: Icon(Icons.menu), label: 'menu'),
+          ],
+        ),
       ),
     );
   }
