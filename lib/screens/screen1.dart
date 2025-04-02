@@ -8,13 +8,14 @@ class Screen1 extends StatefulWidget {
 }
 
 class _Screen1State extends State<Screen1> {
-int _counter = 0;
+  int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
   }
+
   void _decrementCounter() {
     setState(() {
       _counter--;
@@ -22,12 +23,11 @@ int _counter = 0;
   }
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Finish Flutter"),
-        leading: Icon(Icons.menu, color: Colors.white),
+        leading: Icon(Icons.menu),
       ),
       body: Stack(
         children: [
@@ -36,27 +36,22 @@ int _counter = 0;
           //   fit: BoxFit.cover,
           //   height: double.infinity,
           // ),
-          Column(
+          Wrap(
+            alignment: WrapAlignment.start,
             children: [
-              ListTile(
-                leading: Icon(Icons.star),
-                tileColor: Colors.red,
-                title: Text("data increment"),
-                trailing: Text('trailing'),
-                onTap: () {
+              ElevatedButton(
+                onPressed: () {
                   _incrementCounter();
                 },
+                child: Icon(Icons.star),
               ),
-              ListTile(
-                leading: Icon(Icons.star),
-                tileColor: Colors.blue,
-                title: Text("data decrement"),
-                trailing: Text('trailing'),
-                onTap: () {
+              ElevatedButton(
+                onPressed: () {
                   _decrementCounter();
                 },
+                child: Icon(Icons.star),
               ),
-              Center(child: Text("data: $_counter"),),
+              Center(child: Text("data: $_counter")),
             ],
           ),
         ],
