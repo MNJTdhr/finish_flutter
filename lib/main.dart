@@ -11,8 +11,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
-      home: Screen1(),
+      theme: ThemeData(
+        colorSchemeSeed: Colors.teal,
+        brightness: Brightness.dark,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Finish Flutter"),
+          leading: Icon(Icons.menu),
+        ),
+        body: Center(child: Screen1()),
+      ),
     );
   }
 }

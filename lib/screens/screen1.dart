@@ -25,10 +25,6 @@ class _Screen1State extends State<Screen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Finish Flutter"),
-        leading: Icon(Icons.menu),
-      ),
       body: Stack(
         children: [
           // Image.asset(
@@ -37,7 +33,7 @@ class _Screen1State extends State<Screen1> {
           //   height: double.infinity,
           // ),
           Wrap(
-            alignment: WrapAlignment.start,
+            alignment: WrapAlignment.spaceEvenly,
             children: [
               ElevatedButton(
                 onPressed: () {
