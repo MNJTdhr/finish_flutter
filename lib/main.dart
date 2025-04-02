@@ -20,15 +20,9 @@ class MyApp extends StatelessWidget {
           leading: Icon(Icons.menu),
           title: Text("Finish Flutter"),
           centerTitle: true,
-          actions: [Icon(Icons.login), Icon(Icons.logout)],
+          actions: [Icon(Icons.login), Icon(Icons.person)],
         ),
         body: Center(child: Screen1()),
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: 'home'),
-            NavigationDestination(icon: Icon(Icons.menu), label: 'menu'),
-          ],
-        ),
       ),
     );
   }

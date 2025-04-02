@@ -21,7 +21,7 @@ class _Screen1State extends State<Screen1> {
       _counter--;
     });
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +52,16 @@ class _Screen1State extends State<Screen1> {
             ],
           ),
         ],
+      ),
+      bottomNavigationBar: NavigationBar(
+        destinations: [
+          NavigationDestination(icon: Icon(Icons.home), label: 'home'),
+          NavigationDestination(icon: Icon(Icons.menu), label: 'menu'),
+        ],
+        onDestinationSelected: (value) {
+          debugPrint(value.toString());
+        },
+        selectedIndex: 0,
       ),
     );
   }
