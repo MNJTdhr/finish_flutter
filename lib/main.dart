@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.menu),
+          // leading: Icon(Icons.menu),
           title: Text("Finish Flutter"),
           centerTitle: true,
           actions: [Icon(Icons.login), Icon(Icons.person)],

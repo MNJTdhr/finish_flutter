@@ -44,6 +44,31 @@ class _Screen1State extends State<Screen1> {
           ),
         ],
       ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            DrawerHeader(child: Text("drawer")),
+            ListTile(
+              leading: Icon(Icons.star),
+              title: Text('data'),
+            )
+          ],
+        ),
+      ),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            child: Icon(Icons.add),
+          ),
+          SizedBox(height: 10),
+          FloatingActionButton(
+            onPressed: _decrementCounter,
+            child: Icon(Icons.remove),
+          ),
+        ],
+      ),
       bottomNavigationBar: NavigationBar(
         destinations: [
           NavigationDestination(icon: Icon(Icons.home), label: 'home'),
