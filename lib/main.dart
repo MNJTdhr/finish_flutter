@@ -15,15 +15,7 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: Colors.teal,
         brightness: Brightness.dark,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          // leading: Icon(Icons.menu),
-          title: Text("Finish Flutter"),
-          centerTitle: true,
-          actions: [Icon(Icons.login), Icon(Icons.person)],
-        ),
-        body: Center(child: Screen1()),
-      ),
+      home: Screen1(),
     );
   }
 }

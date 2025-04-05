@@ -16,6 +16,12 @@ class _Screen1State extends State<Screen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        // leading: Icon(Icons.menu),
+        title: Text("Finish Flutter"),
+        centerTitle: true,
+        actions: [Icon(Icons.login), Icon(Icons.person)],
+      ),
       body: Stack(
         children: [
           Column(
@@ -47,11 +53,13 @@ class _Screen1State extends State<Screen1> {
       drawer: Drawer(
         child: Column(
           children: [
-            DrawerHeader(child: Text("drawer")),
-            ListTile(
-              leading: Icon(Icons.star),
-              title: Text('data'),
-            )
+            DrawerHeader(
+              child: Text(
+                "drawer",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ),
+            ListTile(leading: Icon(Icons.star), title: Text('data')),
           ],
         ),
       ),
