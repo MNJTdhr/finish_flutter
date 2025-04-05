@@ -10,18 +10,9 @@ class Screen1 extends StatefulWidget {
 class _Screen1State extends State<Screen1> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  void _incrementCounter() => setState(() => _counter++);
+  void _decrementCounter() => setState(() => _counter--);
 
-  void _decrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
