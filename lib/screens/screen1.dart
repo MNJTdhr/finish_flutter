@@ -9,6 +9,7 @@ class Screen1 extends StatefulWidget {
 
 class _Screen1State extends State<Screen1> {
   int _counter = 0;
+  int _currentActiveTab = 0;
 
   void _incrementCounter() => setState(() => _counter++);
   void _decrementCounter() => setState(() => _counter--);
@@ -30,21 +31,19 @@ class _Screen1State extends State<Screen1> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      _incrementCounter();
-                    },
+                    onPressed: () => _incrementCounter(),
                     child: Icon(Icons.add_box_outlined),
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      _decrementCounter();
-                    },
+                    onPressed: () => _decrementCounter(),
                     child: Icon(Icons.remove_circle_outline_rounded),
                   ),
                 ],
               ),
               SizedBox(height: 20),
               Center(child: Text("data: $_counter")),
+              SizedBox(height: 20),
+              Center(child: Text("Curent tab: ${_currentActiveTab + 1}")),
             ],
           ),
         ],
@@ -79,12 +78,15 @@ class _Screen1State extends State<Screen1> {
       bottomNavigationBar: NavigationBar(
         destinations: [
           NavigationDestination(icon: Icon(Icons.home), label: 'home'),
-          NavigationDestination(icon: Icon(Icons.menu), label: 'menu'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'profile'),
         ],
         onDestinationSelected: (value) {
-          debugPrint(value.toString());
+          setState(() {
+            _currentActiveTab = value;
+          });
+          // debugPrint(value.toString());
         },
-        selectedIndex: 0,
+        selectedIndex: _currentActiveTab,
       ),
     );
   }
