@@ -1,4 +1,6 @@
+import 'package:finish_flutter/data/notifiers.dart';
 import 'package:flutter/material.dart';
+//lib/widgets/navbar.dart
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -8,22 +10,23 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-  int _currentActiveTab = 0;
-
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
-      destinations: [
-        NavigationDestination(icon: Icon(Icons.home), label: 'home'),
-        NavigationDestination(icon: Icon(Icons.person), label: 'profile'),
-      ],
-      onDestinationSelected: (value) {
-        setState(() {
-          _currentActiveTab = value;
-        });
-        // debugPrint(value.toString());
+    return ValueListenableBuilder(
+      valueListenable: selectedPageNotifier,
+      builder: (context, selectedpage, child) {
+        return NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: 'home'),
+            NavigationDestination(icon: Icon(Icons.person), label: 'profile'),
+          ],
+          onDestinationSelected: (int value) {
+            selectedPageNotifier.value = value;
+            // debugPrint(value.toString());
+          },
+          selectedIndex: selectedpage,
+        );
       },
-      selectedIndex: _currentActiveTab,
     );
   }
 }

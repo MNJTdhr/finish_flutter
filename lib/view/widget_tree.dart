@@ -1,6 +1,11 @@
+import 'package:finish_flutter/data/notifiers.dart';
 import 'package:finish_flutter/view/screens/home_page.dart';
+import 'package:finish_flutter/view/screens/profile_page.dart';
 import 'package:finish_flutter/widgets/navbar.dart';
 import 'package:flutter/material.dart';
+
+//view/screens/widget_tree.dart
+List<Widget> pages = [HomePage(), ProfilePage()];
 
 class WidgetTree extends StatelessWidget {
   const WidgetTree({super.key});
@@ -12,9 +17,7 @@ class WidgetTree extends StatelessWidget {
         title: Text("Finish Flutter"),
         centerTitle: true,
         actions: [
-          Icon(Icons.camera),
-          SizedBox(width: 10),
-          Icon(Icons.login),
+          IconButton(onPressed: () {}, icon: Icon(Icons.contrast)),
           SizedBox(width: 10),
         ],
       ),
@@ -31,7 +34,12 @@ class WidgetTree extends StatelessWidget {
           ],
         ),
       ),
-      body: HomePage(),
+      body: ValueListenableBuilder(
+        valueListenable: selectedPageNotifier,
+        builder: (context, selectedPage, child) {
+          return pages.elementAt(selectedPage);
+        },
+      ),
       bottomNavigationBar: Navbar(),
     );
   }
