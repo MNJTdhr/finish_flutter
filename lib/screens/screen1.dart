@@ -1,3 +1,4 @@
+import 'package:finish_flutter/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 class Screen1 extends StatefulWidget {
@@ -9,7 +10,6 @@ class Screen1 extends StatefulWidget {
 
 class _Screen1State extends State<Screen1> {
   int _counter = 0;
-  int _currentActiveTab = 0;
 
   void _incrementCounter() => setState(() => _counter++);
   void _decrementCounter() => setState(() => _counter--);
@@ -42,8 +42,6 @@ class _Screen1State extends State<Screen1> {
               ),
               SizedBox(height: 20),
               Center(child: Text("data: $_counter")),
-              SizedBox(height: 20),
-              Center(child: Text("Curent tab: ${_currentActiveTab + 1}")),
             ],
           ),
         ],
@@ -75,19 +73,7 @@ class _Screen1State extends State<Screen1> {
           ),
         ],
       ),
-      bottomNavigationBar: NavigationBar(
-        destinations: [
-          NavigationDestination(icon: Icon(Icons.home), label: 'home'),
-          NavigationDestination(icon: Icon(Icons.person), label: 'profile'),
-        ],
-        onDestinationSelected: (value) {
-          setState(() {
-            _currentActiveTab = value;
-          });
-          // debugPrint(value.toString());
-        },
-        selectedIndex: _currentActiveTab,
-      ),
+      bottomNavigationBar: Navbar(),
     );
   }
 }
