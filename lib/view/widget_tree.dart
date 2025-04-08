@@ -17,7 +17,7 @@ class WidgetTree extends StatelessWidget {
         title: Text("Finish Flutter"),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.contrast)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.brightness_medium)),
           SizedBox(width: 10),
         ],
       ),
