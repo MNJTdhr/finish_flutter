@@ -17,7 +17,17 @@ class WidgetTree extends StatelessWidget {
         title: Text("Finish Flutter"),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.brightness_medium)),
+          IconButton(
+            onPressed: () {
+              selectedThemeNotifier.value = !selectedThemeNotifier.value;
+            },
+            icon: ValueListenableBuilder(
+              valueListenable: selectedThemeNotifier,
+              builder: (context, isDarkMode, child) {
+                return Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode);
+              },
+            ),
+          ),
           SizedBox(width: 10),
         ],
       ),
