@@ -6,8 +6,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("Home page"),
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          TextField(decoration: InputDecoration(border: OutlineInputBorder())),
+        ],
+      ),
     );
   }
 }
