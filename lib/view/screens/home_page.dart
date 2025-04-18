@@ -10,8 +10,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TextEditingController textController = TextEditingController();
-  bool? isCheck = false; 
+  bool? isCheck = false;
   bool? isTriCheck = false;
+  bool isSwitch = false;
+  bool isTileSwitch = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,23 @@ class _HomePageState extends State<HomePage> {
                 isTriCheck = value;
               });
             },
+          ),
+          SizedBox(height: 10),
+          Switch(
+            value: isSwitch,
+            onChanged:
+                (value) => setState(() {
+                  isSwitch = value;
+                }),
+          ),
+          SizedBox(height: 10),
+          SwitchListTile(
+            title: Text("data"),
+            value: isTileSwitch,
+            onChanged:
+                (value) => setState(() {
+                  isTileSwitch = value;
+                }),
           ),
           SizedBox(height: 10),
         ],
