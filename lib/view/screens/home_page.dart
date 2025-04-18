@@ -10,7 +10,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TextEditingController textController = TextEditingController();
-  bool? isCheck = false;  //because can be null later in the code
+  bool? isCheck = false; 
+  bool? isTriCheck = false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,22 @@ class _HomePageState extends State<HomePage> {
           SizedBox(height: 10),
           Checkbox(
             value: isCheck,
-            onChanged: (bool? value) {  //because can be null
+            onChanged: (bool? value) {
+              //because can be null
               setState(() {
                 isCheck = value;
+              });
+            },
+          ),
+          SizedBox(height: 10),
+          CheckboxListTile(
+            tristate: true,
+            title: Text("data"),
+            value: isTriCheck,
+            onChanged: (bool? value) {
+              //because can be null
+              setState(() {
+                isTriCheck = value;
               });
             },
           ),
