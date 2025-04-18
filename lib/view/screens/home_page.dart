@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TextEditingController textController = TextEditingController();
+  double sliderVal = 0.0;
   bool? isCheck = false;
   bool? isTriCheck = false;
   bool isSwitch = false;
@@ -66,6 +67,19 @@ class _HomePageState extends State<HomePage> {
                 (value) => setState(() {
                   isTileSwitch = value;
                 }),
+          ),
+          SizedBox(height: 10),
+          Slider(
+            value: sliderVal,
+            max: 100,
+            min: -100,
+            divisions: 10,
+            onChanged: (value) {
+              setState(() {
+                sliderVal = value;
+              debugPrint('$value');
+              });
+            },
           ),
           SizedBox(height: 10),
         ],
